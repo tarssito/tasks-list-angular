@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
+
+import { Task } from '../models/task.model';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-dialog',
@@ -7,12 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskDialogComponent implements OnInit {
 
-  constructor() { }
+  task: Task = { title: '' };
+
+  constructor(
+    private dialogRef: MatDialogRef<TaskDialogComponent>,
+    private taskService: TaskService
+  ) { }
 
   ngOnInit() {
   }
 
   onSave(): void {
-    console.log('save task');
+    this.taskService.create(this.task)
+      .then(() => {
+        console.log('task created');
+        this.dialogRef.close();
+      });
   }
 }
