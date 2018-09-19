@@ -13,6 +13,7 @@ import {
   MatInputModule,
   MatListModule,
   MatMenuModule,
+  MatProgressSpinnerModule,
   MatSlideToggleModule,
   MatToolbarModule} from '@angular/material';
 
@@ -47,6 +48,7 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     MatLineModule,
     MatListModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
     MatSlideToggleModule,
     MatToolbarModule
   ],
