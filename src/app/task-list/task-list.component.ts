@@ -6,7 +6,7 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 import { Observable } from 'rxjs/Observable';
 
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 
 @Component({
@@ -33,7 +33,8 @@ export class TaskListComponent implements OnInit {
     this.taskService.update(task);
   }
 
-  showDialog(): void {
-    this.dialog.open(TaskDialogComponent);
+  showDialog(task: Task): void {
+    const config: MatDialogConfig<any> = (task) ? {data: {task}} : null;
+    this.dialog.open(TaskDialogComponent, config);
   }
 }
