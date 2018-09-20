@@ -38,7 +38,7 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
   imports: [
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     FormsModule,
     MatButtonModule,
     MatDialogModule,
